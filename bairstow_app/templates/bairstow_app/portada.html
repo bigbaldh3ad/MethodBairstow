@@ -1,0 +1,92 @@
+{% extends 'bairstow_app/base.html' %}
+
+{% block title %}Portada{% endblock %}
+
+{% block content %}
+<div class="container-fluid p-0">
+
+    <!-- HERO PRINCIPAL -->
+    <section class="text-center py-5" style="background: linear-gradient(rgba(15, 15, 15, 0.9), rgba(15, 15, 15, 0.95));">
+        <div class="container py-5">
+            <h1 class="display-4 text-white fw-bold animate__animated animate__fadeInDown">Método de Bairstow</h1>
+            <p class="lead text-light fs-4 animate__animated animate__fadeInUp">Un algoritmo confiable para encontrar raíces de polinomios de cualquier grado</p>
+        </div>
+    </section>
+
+    <!-- INFORMACIÓN GENERAL -->
+    <section class="py-5 bg-dark text-light">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-4">¿Qué es el Método de Bairstow?</h2>
+            <p class="fs-5 text-center mb-5 px-md-5">
+                El <strong>Método de Bairstow</strong> es una técnica numérica iterativa diseñada para encontrar factores cuadráticos de un polinomio con coeficientes reales.
+                A partir de estos factores, se pueden obtener tanto raíces reales como complejas. Es especialmente útil cuando se desea automatizar el proceso de factorización
+                en cálculos científicos y de ingeniería.
+            </p>
+
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="bg-secondary bg-opacity-10 p-4 rounded shadow-sm h-100">
+                        <h4 class="text-info">✅ ¿Por qué utilizarlo?</h4>
+                        <ul class="fs-5 mt-3">
+                            <li>Evita el uso de métodos complejos para raíces imaginarias.</li>
+                            <li>Ideal para polinomios de alto grado.</li>
+                            <li>Puede integrarse fácilmente en software matemático.</li>
+                            <li>Muy utilizado en entornos académicos y de investigación.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="bg-secondary bg-opacity-10 p-4 rounded shadow-sm h-100">
+                        <h4 class="text-info">🛠️ ¿Cómo funciona?</h4>
+                        <p class="fs-5 mt-3">
+                            Se parte de un polinomio dado y se estiman dos valores <code>r</code> y <code>s</code> que definen un divisor cuadrático. 
+                            A través de un proceso iterativo de corrección, el algoritmo mejora las estimaciones de <code>r</code> y <code>s</code> 
+                            hasta que el residuo del polinomio dividido es suficientemente pequeño.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- APLICACIONES -->
+    <section class="py-5 bg-secondary bg-opacity-10 text-light">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-4">Aplicaciones comunes</h2>
+            <div class="row text-center">
+                <div class="col-md-4 mb-4">
+                    <div class="p-4 bg-dark rounded shadow-sm h-100">
+                        <h5 class="text-info">🔬 Ingeniería</h5>
+                        <p>Para el análisis de sistemas dinámicos, circuitos, y estructuras.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="p-4 bg-dark rounded shadow-sm h-100">
+                        <h5 class="text-info">📚 Educación</h5>
+                        <p>Como parte de cursos de métodos numéricos, álgebra computacional y análisis matemático.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="p-4 bg-dark rounded shadow-sm h-100">
+                        <h5 class="text-info">💻 Desarrollo de software</h5>
+                        <p>Para crear calculadoras científicas, scripts de modelado o simuladores matemáticos.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LLAMADO A LA ACCIÓN FINAL -->
+    <section class="py-5 bg-dark text-center text-light">
+        <div class="container">
+            <h3 class="mb-3">¿Listo para empezar a calcular?</h3>
+            <p class="fs-5">Accede a nuestra calculadora interactiva del Método de Bairstow y explora el proceso paso a paso.</p>
+            <a href="{% url 'bairstow' %}" class="btn btn-lg btn-gradient shadow mt-3 px-5 py-3">Ir a la calculadora</a>
+        </div>
+    </section>
+
+</div>
+{% endblock %}
+
+

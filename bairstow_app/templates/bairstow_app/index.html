@@ -1,0 +1,46 @@
+{% extends 'bairstow_app/base.html' %}
+{% load static %}
+
+{% block title %}Calculadora Bairstow{% endblock %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h1 class="text-center mb-4 text-white">Calculadora: Método de Bairstow</h1>
+        
+        <!-- Formulario de cálculo -->
+        <form method="post" class="p-4 border rounded shadow-sm bg-dark text-white">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn w-100 btn-primary">Calcular</button>
+        </form>
+
+        <!-- Resultados -->
+        {% if result %}
+            <div class="mt-5">
+                <h2 class="text-white">Raíces encontradas:</h2>
+                <ul class="list-group">
+                    {% for root in result %}
+                        <li class="list-group-item bg-dark text-light">
+                            {{ root|floatformat:4 }}
+                        </li>
+                    {% endfor %}
+                </ul>
+
+                <h3 class="mt-4 text-white">Pasos de convergencia:</h3>
+                <ol class="list-group list-group-numbered">
+                    {% for step in steps %}
+                        <li class="list-group-item bg-dark text-light">r = {{ step.0|floatformat:4 }}, s = {{ step.1|floatformat:4 }}</li>
+                    {% endfor %}
+                </ol>
+
+                {% if grafica_url %}
+                    <h3 class="mt-4 text-white">Gráfica de convergencia:</h3>
+                    <img src="{% static grafica_url %}" class="img-fluid" width="400">
+                {% endif %}
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}
+
+
+

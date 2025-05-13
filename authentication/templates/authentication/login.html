@@ -1,0 +1,34 @@
+{% extends 'bairstow_app/base.html' %}
+
+{% block title %}Iniciar sesión{% endblock %}
+
+{% block content %}
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="card shadow-lg p-4 rounded bg-dark text-white" style="width: 100%; max-width: 400px;">
+        <h1 class="text-center mb-4 text-white">Iniciar sesión</h1>
+
+        {% if error %}
+            <div class="alert alert-danger text-center mb-4">
+                <p>{{ error }}</p>
+            </div>
+        {% endif %}
+
+        <form method="post" class="p-3">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="id_username" class="form-label text-white">Usuario</label>
+                <input type="text" name="username" id="id_username" class="form-control" placeholder="Tu usuario" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="id_password" class="form-label text-white">Contraseña</label>
+                <input type="password" name="password" id="id_password" class="form-control" placeholder="Tu contraseña" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100 mt-3">Iniciar sesión</button>
+        </form>
+
+        <p class="text-center text-light mt-3">¿No tienes cuenta? <a href="{% url 'register' %}" class="text-info text-decoration-none fw-bold">Regístrate aquí</a></p>
+    </div>
+</div>
+{% endblock %}
